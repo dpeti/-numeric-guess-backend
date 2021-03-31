@@ -1,0 +1,32 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create_game_id_seq" author="dpeti">
+        <createSequence sequenceName="ng_game_id_seq" incrementBy="1" startValue="1"/>
+    </changeSet>
+
+    <changeSet id="create_game_table" author="dpeti">
+        <createTable tableName="game">
+            <column name="id" type="BIGINT" valueSequenceNext="ng_game_id_seq">
+                <constraints primaryKey="true" primaryKeyName="pk_ng_game"/>
+            </column>
+            <column name="public_id" type="VARCHAR(255)">
+                <constraints unique="true" uniqueConstraintName="uq_ng_public_id" nullable="false"/>
+            </column>
+            <column name="number" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="closed" type="BOOLEAN" defaultValueBoolean="false"/>
+            <column name="version" type="BIGINT" defaultValueNumeric="0"/>
+            <column name="created_date" type="TIMESTAMP"/>
+            <column name="modified_date" type="TIMESTAMP"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
