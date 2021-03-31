@@ -87,7 +87,7 @@ public class GameServiceImpl implements GameService {
         if (game.getNumber() > number) {
             result.setResult(Result.LOWER);
         } else if (game.getNumber() < number) {
-            result.setResult(Result.UPPER);
+            result.setResult(Result.GREATER);
         } else if (game.getNumber().equals(number)) {
             game.setClosed(Boolean.TRUE);
             result.setResult(Result.EQUAL);
