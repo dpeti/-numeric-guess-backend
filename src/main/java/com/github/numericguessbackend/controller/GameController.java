@@ -36,13 +36,13 @@ public class GameController {
 
     @GetMapping("/{publicId}")
     public ResponseEntity<GameDto> getOneGame(@PathVariable UUID gameId) {
-        log.info("GameController.initGame() called");
+        log.info("GameController.getOneGame() called");
         return ResponseEntity.ok(gameService.getOneGame(gameId));
     }
 
     @GetMapping("/{publicId}/check/{number}")
-    public ResponseEntity<ResultDto> initGame(@PathVariable UUID gameId, @PathVariable Integer number) {
-        log.info("GameController.initGame() called");
+    public ResponseEntity<ResultDto> checkNumber(@PathVariable UUID gameId, @PathVariable Integer number) {
+        log.info("GameController.checkNumber() called");
         return ResponseEntity.ok(gameService.checkNumber(gameId, number));
     }
 }

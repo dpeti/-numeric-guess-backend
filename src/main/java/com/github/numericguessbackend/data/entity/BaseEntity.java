@@ -1,4 +1,4 @@
-package com.github.numericguessbackend.controller;
+package com.github.numericguessbackend.data.entity;
 
 import lombok.Getter;
 import lombok.Setter;

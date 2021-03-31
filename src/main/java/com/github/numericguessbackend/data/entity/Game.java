@@ -1,7 +1,5 @@
 package com.github.numericguessbackend.data.entity;
 
-import com.github.numericguessbackend.controller.BaseEntity;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,11 +26,9 @@ public class Game extends BaseEntity {
     private Long id;
 
     @Column(name = "public_id")
-    @NotBlank
     private UUID publicId;
 
     @Column(name = "number")
-    @NotNull
     private Integer number;
 
     @Column(name = "closed")
